@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="POST">
+        <h1 class="text-center text-uppercase mb-3">Creation du produit</h1>
+        {% csrf_token %}
+        {{ formcreate.as_p}}
+        <button type="submit" class="btn btn-primary">Creer</button>
+    </form>
+</div>  
+{% endblock content %}

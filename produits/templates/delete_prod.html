@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="POST">
+        <h1 class="text-center text-uppercase mb-3">Suppression d'un produit</h1>
+        {% csrf_token %}
+        <div class="alert alert-danger" role="alert">
+            Vous confirmez la suppression de {{produit}}
+          </div>
+        <button type="submit" class="btn btn-danger">Oui</button>
+        <a href="{% url 'produits' %}" class="btn btn-primary" >Non</a>
+    </form>
+</div>  
+{% endblock content %}
