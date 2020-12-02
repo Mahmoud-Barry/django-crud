@@ -24,7 +24,7 @@ def create(request):
         produit.qte = form_data.cleaned_data['qte']
         produit.seuil = form_data.cleaned_data['seuil']
         produit.save()
-        return redirect('/produits/')
+        return redirect('produits')
     return render(request,'create.html',context)
 
 def produits(request):
@@ -39,9 +39,8 @@ def edit_prod(request , id):
         produit.pu = request.POST['pu']
         produit.qte = request.POST['qte']
         produit.seuil = request.POST['seuil']
-        if produit.is_valid(): 
-            produit.save()
-            return redirect('/produits/')
+        produit.save()
+        return redirect('produits')
     return render(request,'edit_prod.html', context)
 
 def delete_prod(request , id):

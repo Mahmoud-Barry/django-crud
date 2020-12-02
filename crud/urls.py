@@ -18,9 +18,9 @@ from django.urls import path
 from produits.views import index,create,produits,base,edit_prod,delete_prod
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name="index"),
+    path('index/', index, name="index"),
     path('create/', create, name="create"),
-    path('produits/', produits, name="produits"),
+    path('', produits, name="produits"),
     path('edit/<int:id>', edit_prod, name="edit_prod"),
     path('delete/<int:id>', delete_prod, name="delete_prod"),
 ]

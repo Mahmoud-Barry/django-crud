@@ -1,15 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <form action="" method="POST">
-        <h1 class="text-center text-uppercase mb-3">Suppression d'un produit</h1>
-        {% csrf_token %}
-        <div class="alert alert-danger" role="alert">
-            Vous confirmez la suppression de {{produit}}
-          </div>
-        <button type="submit" class="btn btn-danger">Oui</button>
-        <a href="{% url 'produits' %}" class="btn btn-primary" >Non</a>
-    </form>
-</div>  
+<!-- Button to Open the Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
+    Open modal
+  </button>
+  
+  <!-- The Modal -->
+  <div class="modal" id="deleteModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">suppression d'un produit</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="container">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="alert alert-danger mt-3" role="alert">
+                    Vous confirmez la suppression de {{produit}}
+                </div>
+            </form>
+        </div>  
+        <!-- Modal footer -->
+        <div class="modal-footer text-center">
+          <button type="submit" class="btn btn-danger">Oui</button>
+                <a href="{% url 'produits' %}" class="btn btn-primary" >Non</a>
+        </div>
+  
+      </div>
+    </div>
+  </div>
 {% endblock content %}
